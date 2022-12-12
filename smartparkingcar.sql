@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 12, 2022 lúc 06:19 AM
+-- Thời gian đã tạo: Th12 12, 2022 lúc 11:26 AM
 -- Phiên bản máy phục vụ: 10.4.24-MariaDB
 -- Phiên bản PHP: 8.1.6
 
@@ -54,8 +54,8 @@ CREATE TABLE `admin` (
   `Email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Birthday` datetime NOT NULL,
   `Sex` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Phone` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `CMND` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `CMND` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Address` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Usename` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -76,9 +76,9 @@ INSERT INTO `admin` (`ID_admin`, `Name`, `Email`, `Birthday`, `Sex`, `Phone`, `C
 CREATE TABLE `car` (
   `ID_car` int(11) NOT NULL,
   `ID_customer` int(11) NOT NULL,
-  `Company` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Company` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Car_type` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Color` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Color` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `License_plate` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -101,17 +101,17 @@ CREATE TABLE `check` (
   `License_plate` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `TimeIn` datetime NOT NULL,
   `ID_car` int(11) DEFAULT NULL,
-  `Office` int(11) NOT NULL
+  `Status` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `check`
 --
 
-INSERT INTO `check` (`ID_check`, `License_plate`, `TimeIn`, `ID_car`, `Office`) VALUES
-(1, '43A-549.78', '2022-12-12 05:59:10', 1, 6),
-(2, '43A-565.78', '2022-12-12 05:59:54', NULL, 7),
-(3, '37B-598.97', '2022-12-12 06:00:33', 2, 6);
+INSERT INTO `check` (`ID_check`, `License_plate`, `TimeIn`, `ID_car`, `Status`) VALUES
+(1, '43A-549.78', '2022-12-12 05:59:10', 1, b'1'),
+(2, '43A-565.78', '2022-12-12 05:59:54', NULL, b'1'),
+(3, '37B-598.97', '2022-12-12 06:00:33', 2, b'1');
 
 -- --------------------------------------------------------
 
@@ -125,8 +125,8 @@ CREATE TABLE `customer` (
   `Sex` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Gmail` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Birthday` datetime NOT NULL,
-  `Phone` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `CMND` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `Phone` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `CMND` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Address` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Usename` varchar(25) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Status` bit(1) NOT NULL
@@ -151,40 +151,16 @@ CREATE TABLE `invoice` (
   `ID_paking` int(11) NOT NULL,
   `ID_customer` int(11) NOT NULL,
   `ID_admin` int(11) NOT NULL,
-  `Office` int(11) NOT NULL
+  `Status` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `invoice`
 --
 
-INSERT INTO `invoice` (`ID_invoice`, `ID_paking`, `ID_customer`, `ID_admin`, `Office`) VALUES
-(1, 2, 1, 1, 4),
-(2, 3, 2, 1, 4);
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `office`
---
-
-CREATE TABLE `office` (
-  `ID_office` int(11) NOT NULL,
-  `Office` text COLLATE utf8mb4_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Đang đổ dữ liệu cho bảng `office`
---
-
-INSERT INTO `office` (`ID_office`, `Office`) VALUES
-(1, 'Đang gửi'),
-(2, 'Trống'),
-(3, 'Đã gửi'),
-(4, 'Chưa thanh toán'),
-(5, 'Đã thanh toán'),
-(6, 'Tồn tại'),
-(7, 'Không tồn tại');
+INSERT INTO `invoice` (`ID_invoice`, `ID_paking`, `ID_customer`, `ID_admin`, `Status`) VALUES
+(1, 2, 1, 1, b'0'),
+(2, 3, 2, 1, b'0');
 
 -- --------------------------------------------------------
 
@@ -202,16 +178,16 @@ CREATE TABLE `parking` (
   `ID_ticket_price` int(11) DEFAULT NULL,
   `amount` int(20) DEFAULT NULL,
   `sum` int(20) DEFAULT NULL,
-  `Office` int(11) NOT NULL
+  `Status` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `parking`
 --
 
-INSERT INTO `parking` (`ID_parking`, `ID_check`, `TimeOut`, `TG_parking`, `ID_car`, `ID_parkinglot`, `ID_ticket_price`, `amount`, `sum`, `Office`) VALUES
-(2, 3, NULL, NULL, 2, 'P2', NULL, NULL, NULL, 1),
-(3, 1, NULL, NULL, 1, 'P4', NULL, NULL, NULL, 1);
+INSERT INTO `parking` (`ID_parking`, `ID_check`, `TimeOut`, `TG_parking`, `ID_car`, `ID_parkinglot`, `ID_ticket_price`, `amount`, `sum`, `Status`) VALUES
+(2, 3, NULL, NULL, 2, 'P2', NULL, NULL, NULL, b'1'),
+(3, 1, NULL, NULL, 1, 'P4', NULL, NULL, NULL, b'1');
 
 -- --------------------------------------------------------
 
@@ -222,20 +198,20 @@ INSERT INTO `parking` (`ID_parking`, `ID_check`, `TimeOut`, `TG_parking`, `ID_ca
 CREATE TABLE `parkinglot` (
   `ID_parkinglot` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `Parking_lot` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `Office` int(11) NOT NULL
+  `Status` bit(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `parkinglot`
 --
 
-INSERT INTO `parkinglot` (`ID_parkinglot`, `Parking_lot`, `Office`) VALUES
-('P1', 'A1', 2),
-('P2', 'A2', 1),
-('P3', 'B1', 2),
-('P4', 'B2', 1),
-('P5', 'C1', 2),
-('P6', 'C2', 2);
+INSERT INTO `parkinglot` (`ID_parkinglot`, `Parking_lot`, `Status`) VALUES
+('P1', 'A1', b'0'),
+('P2', 'A2', b'1'),
+('P3', 'B1', b'0'),
+('P4', 'B2', b'1'),
+('P5', 'C1', b'0'),
+('P6', 'C2', b'0');
 
 -- --------------------------------------------------------
 
@@ -291,8 +267,7 @@ ALTER TABLE `car`
 --
 ALTER TABLE `check`
   ADD PRIMARY KEY (`ID_check`),
-  ADD KEY `ID_car` (`ID_car`),
-  ADD KEY `office` (`Office`);
+  ADD KEY `ID_car` (`ID_car`);
 
 --
 -- Chỉ mục cho bảng `customer`
@@ -308,14 +283,7 @@ ALTER TABLE `invoice`
   ADD PRIMARY KEY (`ID_invoice`),
   ADD KEY `ID_paking` (`ID_paking`),
   ADD KEY `ID_customer` (`ID_customer`),
-  ADD KEY `ID_admin` (`ID_admin`),
-  ADD KEY `Office` (`Office`);
-
---
--- Chỉ mục cho bảng `office`
---
-ALTER TABLE `office`
-  ADD PRIMARY KEY (`ID_office`);
+  ADD KEY `ID_admin` (`ID_admin`);
 
 --
 -- Chỉ mục cho bảng `parking`
@@ -325,15 +293,13 @@ ALTER TABLE `parking`
   ADD KEY `ID_check` (`ID_check`),
   ADD KEY `ID_car` (`ID_car`),
   ADD KEY `ID_parkinglot` (`ID_parkinglot`),
-  ADD KEY `ID_ticket_price` (`ID_ticket_price`),
-  ADD KEY `Office` (`Office`);
+  ADD KEY `ID_ticket_price` (`ID_ticket_price`);
 
 --
 -- Chỉ mục cho bảng `parkinglot`
 --
 ALTER TABLE `parkinglot`
-  ADD PRIMARY KEY (`ID_parkinglot`),
-  ADD KEY `Office` (`Office`);
+  ADD PRIMARY KEY (`ID_parkinglot`);
 
 --
 -- Chỉ mục cho bảng `ticketsprice`
@@ -367,19 +333,13 @@ ALTER TABLE `check`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `ID_Customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_Customer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `invoice`
 --
 ALTER TABLE `invoice`
   MODIFY `ID_invoice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT cho bảng `office`
---
-ALTER TABLE `office`
-  MODIFY `ID_office` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT cho bảng `parking`
@@ -413,8 +373,7 @@ ALTER TABLE `car`
 -- Các ràng buộc cho bảng `check`
 --
 ALTER TABLE `check`
-  ADD CONSTRAINT `check_ibfk_1` FOREIGN KEY (`ID_car`) REFERENCES `car` (`ID_car`),
-  ADD CONSTRAINT `office` FOREIGN KEY (`Office`) REFERENCES `office` (`ID_office`);
+  ADD CONSTRAINT `check_ibfk_1` FOREIGN KEY (`ID_car`) REFERENCES `car` (`ID_car`);
 
 --
 -- Các ràng buộc cho bảng `customer`
@@ -428,8 +387,7 @@ ALTER TABLE `customer`
 ALTER TABLE `invoice`
   ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`ID_paking`) REFERENCES `parking` (`ID_parking`),
   ADD CONSTRAINT `invoice_ibfk_2` FOREIGN KEY (`ID_customer`) REFERENCES `customer` (`ID_Customer`),
-  ADD CONSTRAINT `invoice_ibfk_3` FOREIGN KEY (`ID_admin`) REFERENCES `admin` (`ID_admin`),
-  ADD CONSTRAINT `invoice_ibfk_4` FOREIGN KEY (`Office`) REFERENCES `office` (`ID_office`);
+  ADD CONSTRAINT `invoice_ibfk_3` FOREIGN KEY (`ID_admin`) REFERENCES `admin` (`ID_admin`);
 
 --
 -- Các ràng buộc cho bảng `parking`
@@ -438,14 +396,7 @@ ALTER TABLE `parking`
   ADD CONSTRAINT `parking_ibfk_1` FOREIGN KEY (`ID_check`) REFERENCES `check` (`ID_check`),
   ADD CONSTRAINT `parking_ibfk_2` FOREIGN KEY (`ID_car`) REFERENCES `car` (`ID_car`),
   ADD CONSTRAINT `parking_ibfk_3` FOREIGN KEY (`ID_parkinglot`) REFERENCES `parkinglot` (`ID_parkinglot`),
-  ADD CONSTRAINT `parking_ibfk_4` FOREIGN KEY (`ID_ticket_price`) REFERENCES `ticketsprice` (`ID_tickets_price`),
-  ADD CONSTRAINT `parking_ibfk_5` FOREIGN KEY (`Office`) REFERENCES `office` (`ID_office`);
-
---
--- Các ràng buộc cho bảng `parkinglot`
---
-ALTER TABLE `parkinglot`
-  ADD CONSTRAINT `parkinglot_ibfk_1` FOREIGN KEY (`Office`) REFERENCES `office` (`ID_office`);
+  ADD CONSTRAINT `parking_ibfk_4` FOREIGN KEY (`ID_ticket_price`) REFERENCES `ticketsprice` (`ID_tickets_price`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
