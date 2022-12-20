@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap");
+header .header_innder {
+}
+
+body {
+  margin: 0;
+}
+
+.navbar {
+  background-color: #333;
+  text-align: center;
+}
+
+.navbar h2 {
+  color: white;
+  display: inline-block;
+  font-family: "Signika Negative", sans-serif;
+}
+.navbar i {
+  color: white;
+  font-size: 25px;
+  position: absolute;
+  left: 10px;
+  padding: 20px;
+}
+
+.navbar i:hover {
+  cursor: pointer;
+}
