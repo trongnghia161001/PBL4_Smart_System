@@ -19,6 +19,8 @@ WHERE ID_tickets_price = '$myID'");
 
 header("Location:capnhatgiaxe.php");
 
+
+
 ?>
 
 <html>

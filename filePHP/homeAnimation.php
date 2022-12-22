@@ -1,15 +1,17 @@
 <?php
 
+
 @include 'config.php';
 
 session_start();
+$myusername = $_SESSION['user_name'];
+// $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
+$link = mysqli_connect('sql6.freesqldatabase.com', 'sql6584911', 'zdvfEsH37e', 'sql6584911', 3306) or die('Could not connect: ' . $conn->connect_error);
 
-// if (!isset($_SESSION['admin_name'])) {
-//     header('location:loginForm.php');
-// }
-// if (!isset($_SESSION['user_name'])) {
-//     header('location:loginForm.php');
-// }
+// $db_selected = mysqli_select_db($link, 'smartparkingcar');
+$rs = mysqli_query($link, "SELECT * FROM customer WHERE Username = '$myusername'");
+$row = mysqli_fetch_array($rs, MYSQLI_BOTH);
+
 
 ?>
 <!DOCTYPE html>
@@ -46,11 +48,16 @@ session_start();
                     <a href="">Báo cáo thống kê</a>
                 </div>';
         } else {
-            echo '<div class="textAlign">
-                    <a href="/PBL4/filePHP/user/capnhatUser.php">Đăng ký gửi xe</a>
-                </div>
+            if (!isset($row['ID_Customer'])) {
+                echo '
                 <div class="textAlign">
-                    <a href="">Xem Chỗ Trống</a>
+                    <a href="/PBL4/filePHP/user/dashboard/dangkyguixe/dangkyguixe.php">Đăng ký gửi xe</a>
+                </div>';
+            }
+
+            echo '
+                <div class="textAlign">
+                    <a href="/PBL4/filePHP/user/dashboard/xemchotrong/xemchotrong.php">Xem Chỗ Trống</a>
                 </div>';
         } ?>
 
