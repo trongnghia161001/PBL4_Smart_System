@@ -4,11 +4,8 @@ $location = $_POST['location'];
 
 // $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
 // $db_selected = mysqli_select_db($link, 'DULIEU');
-$link = mysqli_connect('sql6.freesqldatabase.com', 'sql6584911', 'zdvfEsH37e', 'sql6584911', 3306) or die('Could not connect: ' . $conn->connect_error);
+$link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
 $rs2 = mysqli_query($link, "SELECT * FROM parking WHERE Location = '$location'"); //Giai phong tap cac ban ghi trong Srs
-
-
-
 ?>
 
 <html>

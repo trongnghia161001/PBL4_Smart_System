@@ -6,7 +6,7 @@
 session_start();
 $myusername = $_SESSION['user_name'];
 // $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
-$link = mysqli_connect('sql6.freesqldatabase.com', 'sql6584911', 'zdvfEsH37e', 'sql6584911', 3306) or die('Could not connect: ' . $conn->connect_error);
+$link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
 
 // $db_selected = mysqli_select_db($link, 'smartparkingcar');
 $rs = mysqli_query($link, "SELECT * FROM customer WHERE Username = '$myusername'");
