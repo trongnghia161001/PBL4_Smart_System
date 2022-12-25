@@ -1,31 +1,31 @@
 <?php
 if (session_id() == '') session_start();
 
-if (isset($_SESSION['admin_name']) == false) {
-    header("location:http://localhost/PBL4/filePHP/Login/loginForm.php");
+if (isset($_SESSION['user_name']) == false) {
+    header("location:/PBL4/filePHP/Login/loginForm.php");
     exit();
 }
-$Useradmin = $_SESSION['admin_name'];
-$loi = "";
-if (isset($_POST['doimatkhau']) == true) {
-    $op = ($_POST['op']);
-    $np = ($_POST['np']);
-    $cnp = ($_POST['cnp']);
-    $conn = new PDO("mysql:host=sql6.freesqldatabase.com;dbname=sql6586096;charset=utf8", "sql6586096", "KuFkaR6aj9");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$User = $_SESSION['user_name'];
+$loi1 = "";
+if (isset($_POST['doimatkhau1']) == true) {
+    $op1 = ($_POST['op1']);
+    $np1 = ($_POST['np1']);
+    $cnp1 = ($_POST['cnp1']);
+    $conn1 = new PDO("mysql:host=sql6.freesqldatabase.com;dbname=sql6586096;charset=utf8", "sql6586096", "KuFkaR6aj9");
+    $conn1->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "SELECT * FROM account WHERE Username = ? AND Password = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute([$Useradmin, $op]);
-    if ($stmt->rowCount() == 0) {
-        $loi .= "Mật khẩu cũ sai rồi<br>";
+    $stmt1 = $conn1->prepare($sql);
+    $stmt1->execute([$User, $op1]);
+    if ($stmt1->rowCount() == 0) {
+        $loi1 .= "Mật khẩu cũ sai rồi<br>";
     }
-    if ($np != $cnp) {
-        $loi .= "Mật khẩu nhập lại sai<br>";
+    if ($np1 != $cnp1) {
+        $loi1 .= "Mật khẩu nhập lại sai<br>";
     }
-    if ($loi == "") {
+    if ($loi1 == "") {
         $sql = "UPDATE account SET Password = ? WHERE Username = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([$np, $Useradmin]);
+        $stmt1 = $conn1->prepare($sql);
+        $stmt1->execute([$np1, $User]);
         header('location:/PBL4/filePHP/homeAnimation.php');
     }
 }
@@ -66,7 +66,7 @@ if (isset($_POST['doimatkhau']) == true) {
                 </div>
                 <form method="POST">
 
-                    <!-- <?php echo $_SESSION['admin_name']; ?>
+                    <!-- <?php echo $_SESSION['user_name']; ?>
                     // <?php if (isset($_GET['error'])) { ?>
                     // <p> <?php echo $_GET['error']; ?></p>
                     // <?php } ?>
@@ -75,23 +75,23 @@ if (isset($_POST['doimatkhau']) == true) {
                     // <p> <?php echo $_GET['success']; ?></p>
                     // <?php } ?> -->
 
-                    <input type="password" name="op" placeholder="old password"
-                        value="<?php if (isset($op) == true) echo $op; ?>"
+                    <input type="password" name="op1" placeholder="old password"
+                        value="<?php if (isset($op1) == true) echo $op; ?>"
                         class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800"
                         style="border: 1px solid #d3d5d8 !important;">
-                    <input type="password" name="np" placeholder="new password"
-                        value="<?php if (isset($np) == true) echo $np; ?>"
+                    <input type="password" name="np1" placeholder="new password"
+                        value="<?php if (isset($np1) == true) echo $np; ?>"
                         class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800"
                         style="border: 1px solid #d3d5d8 !important;">
-                    <input type="password" name="cnp" placeholder="confirm new password"
-                        value="<?php if (isset($cnp) == true) echo $cnp; ?>"
+                    <input type="password" name="cnp1" placeholder="confirm new password"
+                        value="<?php if (isset($cnp1) == true) echo $cnp; ?>"
                         class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800"
                         style="border: 1px solid #d3d5d8 !important;">
-                    <?php if ($loi != "") { ?>
-                    <div class="alert-secondary"><?php echo $loi ?></div>
+                    <?php if ($loi1 != "") { ?>
+                    <div class="alert-secondary"><?php echo $loi1 ?></div>
 
                     <?php } ?>
-                    <button type="submit" name="doimatkhau" value=""
+                    <button type="submit" name="doimatkhau1" value=""
                         class="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full"
                         style="margin:0px">
                         Update Password
@@ -120,6 +120,7 @@ if (isset($_POST['doimatkhau']) == true) {
         </div>
 
     </div>
+
     <!-- Scripts
 ================================================== -->
     <script src="/PBL4/static/assets/js/tippy.all.min.js"></script>

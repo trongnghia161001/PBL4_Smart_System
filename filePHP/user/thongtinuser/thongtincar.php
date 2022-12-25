@@ -1,12 +1,17 @@
 <?php
 $conn = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
+mysqli_set_charset($conn, "utf8");
+
 session_start();
 $username = $_SESSION['user_name'];
 $rs1 = mysqli_query($conn, "SELECT * FROM customer WHERE Username = '$username'");
-$rs2 = mysqli_query($conn, "SELECT * FROM car WHERE Username = '$username'");
+
 
 $row1 = mysqli_fetch_array($rs1, MYSQLI_BOTH);
-// $row2 = mysqli_fetch_array($rs2, MYSQLI_BOTH);
+$ID = $row1['ID_Customer'];
+$rs2 = mysqli_query($conn, "SELECT * FROM car WHERE ID_customer = '$ID'");
+$row2 = mysqli_fetch_array($rs2, MYSQLI_BOTH);
+
 echo '
     <!DOCTYPE html>
     <html lang="en">
@@ -132,7 +137,7 @@ echo '
 
     <body>
 
-
+            
             <form class="container2">
                 <h1>Thông tin về xe</h1>
                 <div class="form-group">

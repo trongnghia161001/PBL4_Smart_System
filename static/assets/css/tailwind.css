@@ -451,16 +451,6 @@ a {
  * normalize.css.
  */
 
-button,
-input,
-optgroup,
-select,
-textarea {
-  padding: 0;
-  line-height: inherit;
-  color: inherit;
-}
-
 /**
  * Use the configured 'mono' font family for elements that
  * are expected to be rendered with a monospace font, falling

@@ -1,7 +1,7 @@
 <?php
-// $link = mysqli_connect('localhost', 'root', '') or die('Could not connect:' . mysqli_error($link));
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
-// $db_selected = mysqli_select_db($link, 'smartparkingcar');
+mysqli_set_charset($link, "utf8");
+
 $rs = mysqli_query($link, "SELECT * FROM customer WHERE Status = 1");
 echo '<title>Danh sách user</title>';
 echo '
@@ -20,7 +20,6 @@ echo '<Form action="">';
 echo '<table border="1" width="100%" class="table table-striped">';
 
 echo    '<TR>
-            <TH>MÃ KHÁCH HÀNG</TH>
             <TH>HỌ TÊN</TH>
             <TH>GIỚI TÍNH</TH>
             <TH>EMAIL</TH>
@@ -28,13 +27,12 @@ echo    '<TR>
             <TH>PHONE</TH>
             <TH>CMND</TH>
             <TH>ĐỊA CHỈ</TH>
-            <TH>CẬP NHẬP</TH>
+            <TH>THÔNG TIN XE</TH>
             <TH>XOÁ</TH>
         </TR>';
 while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
     echo
     '<TR>
-    <TD>' . $row['ID_Customer'] . '</TD>
     <TD>' . $row['Name'] . '</TD>
     <TD>' . $row['Sex'] . '</TD>
     <TD>' . $row['Gmail'] . '</TD>
@@ -42,13 +40,12 @@ while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
     <TD>' . $row['Phone'] . '</TD>
     <TD>' . $row['CMND'] . '</TD>
     <TD>' . $row['Address'] . '</TD>
-    <TD><a HREF="quanLyTaiKhoan.php?ID_Customer=' . $row['ID_Customer'] . '" target="target_form"><i style="font-size:24px; color: black;" class="fa">&#xf044;</i></a></TD>
-    <TD><a HREF="xulyxoaUser.php?ID_Customer=' . $row['ID_Customer'] . '"><i class="material-icons" style="font-size:24px; color: black;">&#xe872;</i></a></TD>
+    <TD><a HREF="/PBL4/filePHP/admin/quanlykhachhang/lienketcar.php?ID_Customer=' . $row['ID_Customer'] . '" target="target_form"><i style="font-size:24px; color: black;" class="fa">&#xf044;</i></a></TD>
+    <TD><a HREF="/PBL4/filePHP/admin/quanlykhachhang/xulyxoaUser.php?ID_Customer=' . $row['ID_Customer'] . '"><i class="material-icons" style="font-size:24px; color: black;">&#xe872;</i></a></TD>
     </TR>';
 }
 echo '</TABLE>';
 echo '</form>';
-//Giai phong tap cac ban ghi trong Srs
 mysqli_free_result($rs);
 mysqli_close($link);
 ?>

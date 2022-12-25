@@ -2,15 +2,16 @@
 
 
 $myID = $_REQUEST['ID_admin'];
-@include 'config.php';
 
 // $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
+mysqli_set_charset($link, "utf8");
+
 
 // $db_selected = mysqli_select_db($link, 'smartparkingcar');
 $rs = mysqli_query($link, "SELECT * FROM admin WHERE ID_admin = '$myID'");
 $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
-@include 'config.php';
+
 
 session_start();
 
@@ -53,8 +54,6 @@ session_start();
 <body class="bg-gray-100" style="background-color:#f2f2f2!important;">
 
     <div id="wrapper" class="flex flex-col justify-between h-screen">
-        <!-- header-->
-        <!-- Content-->
         <div>
             <div class="lg:p-12 max-w-md max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
                 <h1 class="lg:text-3xl text-xl font-semibold  mb-6">Cập nhật Admin</h1>
@@ -98,19 +97,19 @@ session_start();
                         <tr>
                             <td>Ngày Sinh</td>
                             <td><input type="date" size="20" name="txtBirthday"
-                                    style="border: 1px solid #d3d5d8 !important;text-align: 20px;" required
+                                    style="border: 1px solid #d3d5d8 !important; padding: 0 20px;" required
                                     value="<?php echo $row['Birthday']; ?>">
                             </td>
                         </tr>
                         <tr>
                             <td>Giới Tính</td>
                             <td>
-                                <select name="txtGioitinh" style="border: 1px solid #d3d5d8 !important;" required
+                                <select name="txtGioitinh"
+                                    style="border: 1px solid #d3d5d8 !important; padding: 0 20px;" required
                                     value="<?php echo $row['Sex']; ?>">
-
-                                    <option value="Nu" style="text-align: 20px;">Nu</option>
+                                    <option value="Nu" style="text-align: 20px;">Nữ</option>
                                     <option value="Nam" style="text-align: 20px;">Nam</option>
-                                    <option value="Khac" style="text-align: 20px;">Khac</option>
+                                    <option value="Khac" style="text-align: 20px;">Khác</option>
                                 </select>
                             </td>
                         </tr>
@@ -152,7 +151,6 @@ session_start();
                 </form>
             </div>
         </div>
-        <!-- Footer -->
         <div class="lg:mb-5 py-3 uk-link-reset">
             <div
                 class="flex flex-col items-center justify-between lg:flex-row max-w-6xl mx-auto lg:space-y-0 space-y-3">

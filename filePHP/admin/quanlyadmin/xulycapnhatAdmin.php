@@ -9,17 +9,18 @@ $phone = $_REQUEST['txtPhone'];
 $cmnd = $_REQUEST['txtCMND'];
 $diachi = $_REQUEST['txtDiaChi'];
 $use = $_REQUEST['txtUse'];
-// $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
-// $db_selected = mysqli_select_db($link, 'DULIEU');
+
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
+mysqli_set_charset($link, "utf8");
+
 $rs = mysqli_query($link, "UPDATE admin Set
 Name = '$tennv',
 Email = '$email',
-Birthday = '$birthday',
+Birthday = '$birthday',     
 Sex = '$gioitinh',
 Phone = '$phone',
 CMND = '$cmnd',
-Address = '$diachi'
+Address = '$diachi',
 Username = '$use'
 WHERE ID_admin = '$myID'");
 

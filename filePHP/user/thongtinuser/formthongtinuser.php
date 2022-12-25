@@ -7,33 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    .flex-container {
+    .element {
+        display: inline-block;
+        width: 100%;
+        height: 100vh;
+        border: none;
+    }
+
+
+    .flexLayout {
         display: flex;
-    }
-
-    .flex-child {
-        flex: 1;
-        border: 2px solid yellow;
-    }
-
-    .flex-child:first-child {
-        margin-right: 20px;
     }
     </style>
 </head>
 
 
 <body>
-    <div class="flex-container">
-
-        <div class="flex-child magenta">
-            Flex Column 1
-        </div>
-
-        <div class="flex-child green">
-            Flex Column 2
-        </div>
-
+    <div class="flexLayout">
+        <iframe src="/PBL4/filePHP/user/thongtinuser/thongtinuser.php" class="element"></iframe>
+        <iframe src="/PBL4/filePHP/user/thongtinuser/thongtincar.php" class="element"></iframe>
     </div>
 </body>
 

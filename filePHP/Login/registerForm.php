@@ -62,11 +62,6 @@
                     <input type="password" name="cpassword" required placeholder="confirm your password"
                         class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800"
                         style="border: 1px solid #d3d5d8 !important;">
-                    <!-- <select name="Office" class="bg-gray-200 mb-2 shadow-none dark:bg-gray-800"
-                        style="border: 1px solid #d3d5d8 !important; padding: 0 20px;">
-                        <option value="1" name="Office">user</option>
-                        <option value="0" name="Office">admin</option>
-                    </select> -->
                     <button type=" submit" name="submit" value="register now"
                         class="bg-gradient-to-br from-pink-500 py-3 rounded-md text-white text-xl to-red-400 w-full"
                         style="margin:0px">
@@ -97,44 +92,6 @@
         </div>
 
     </div>
-
-    <!--<script>
-
-    (function (window, document, undefined) {
-        'use strict';
-        if (!('localStorage' in window)) return;
-        var nightMode = localStorage.getItem('gmtNightMode');
-        if (nightMode) {
-            document.documentElement.className += ' dark';
-        }
-    })(window, document);
-
-
-    (function (window, document, undefined) {
-
-        'use strict';
-
-        // Feature test
-        if (!('localStorage' in window)) return;
-
-        // Get our newly insert toggle
-        var nightMode = document.querySelector('#night-mode');
-        if (!nightMode) return;
-
-        // When clicked, toggle night mode on or off
-        nightMode.addEventListener('click', function (event) {
-            event.preventDefault();
-            document.documentElement.classList.toggle('dark');
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('gmtNightMode', true);
-                return;
-            }
-            localStorage.removeItem('gmtNightMode');
-        }, false);
-
-    })(window, document);
-</script>-->
-
     <!-- Scripts
 ================================================== -->
     <script src="/PBL4/static/assets/js/tippy.all.min.js"></script>

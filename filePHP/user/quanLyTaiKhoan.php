@@ -1,21 +1,14 @@
 <?php
 
 $myID = $_REQUEST['ID_Customer'];
-// $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
+mysqli_set_charset($link, "utf8");
 
-
-// $db_selected = mysqli_select_db($link, 'smartparkingcar');
 $rs = mysqli_query($link, "SELECT * FROM customer WHERE ID_Customer = '$myID'");
 $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
 @include 'config.php';
 
 session_start();
-
-// if (!isset($_SESSION['user_name'])) {
-//     header('location:loginForm.php');
-// }
-
 
 ?>
 

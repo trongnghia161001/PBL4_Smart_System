@@ -8,9 +8,9 @@ $birthday = $_REQUEST['txtBirthday'];
 $phone = $_REQUEST['txtPhone'];
 $cmnd = $_REQUEST['txtCMND'];
 $diachi = $_REQUEST['txtDiaChi'];
-// $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
-// $db_selected = mysqli_select_db($link, 'smartparkingcar');
+mysqli_set_charset($link, "utf8");
+
 $rs = mysqli_query($link, "UPDATE customer Set 
 Name = '$tennv',
 Sex = '$gioitinh',

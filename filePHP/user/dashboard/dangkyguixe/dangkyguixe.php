@@ -18,7 +18,6 @@ $myusername = $_SESSION['user_name'];
     <link rel="stylesheet" href="/PBL4/fileCSS/signupUser.css">
     <link rel="stylesheet" href="/PBL4/static/assets/css/detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 </head>
 
 <body>
@@ -26,30 +25,20 @@ $myusername = $_SESSION['user_name'];
         <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
     </div>
     <form class="signup-form" action="xulydangkyguixe.php" method="post">
-
-        <!-- form header -->
         <div class="form-header">
             <h1>Create Account</h1>
         </div>
-
-        <!-- form body -->
         <div class="form-body">
-
-            <!-- Firstname and Lastname -->
             <div class="form-group">
                 <label for="fullname" class="label-title">Fullname*</label>
                 <input type="text" id="fullname" class="form-input" placeholder="enter your fullname"
                     required="required" name="Name">
             </div>
-
-            <!-- Email -->
             <div class="form-group">
                 <label for="email" class="label-title">Email*</label>
                 <input type="email" id="email" class="form-input" placeholder="enter your email" required="required"
                     name="Gmail">
             </div>
-
-            <!-- Passwrod and confirm password -->
             <div class="horizontal-group">
                 <div class="form-group left">
                     <label for="birthday" class="label-title">Birthday *</label>
@@ -62,15 +51,13 @@ $myusername = $_SESSION['user_name'];
                         name="Phone">
                 </div>
             </div>
-
-            <!-- Gender and Hobbies -->
             <div class="horizontal-group">
                 <div class="form-group left">
                     <label class="label-title">Gender:</label>
                     <div class="input-group">
-                        <label for="male"><input type="radio" id="male" name="Sex" value="Nu" checked>
+                        <label for="male"><input type="radio" id="male" name="Sex" value="Nam" checked>
                             Male</label>
-                        <label for="female"><input type="radio" id="female" name="Sex" value="Nam">
+                        <label for="female"><input type="radio" id="female" name="Sex" value="Nu">
                             Female</label>
                     </div>
                 </div>
@@ -80,8 +67,6 @@ $myusername = $_SESSION['user_name'];
                         name="CMND">
                 </div>
             </div>
-
-            <!-- Source of Income and Income -->
             <div class="horizontal-group">
                 <div class="form-group left">
                     <label for="address" class="label-title">Address *</label>
@@ -94,25 +79,17 @@ $myusername = $_SESSION['user_name'];
                         required="required" name="Username" value="<?php echo $myusername ?>">
                 </div>
             </div>
-
-            <!-- Profile picture and Age -->
-
-            <!-- Bio -->
             <div class="form-group">
                 <label for="choose-file" class="label-title">Bio</label>
                 <textarea class="form-input" rows="4" cols="50" style="height:auto"></textarea>
             </div>
         </div>
-
-        <!-- form-footer -->
         <div class="form-footer">
             <span>* required</span>
             <button type="submit" name="submit" class="btn">Create</button>
         </div>
 
     </form>
-
-    <!-- Script for range input label -->
     <script>
     var rangeLabel = document.getElementById("range-label");
     var experience = document.getElementById("experience");

@@ -1,9 +1,13 @@
 <?php
+$mapb = $_REQUEST['ID_Customer'];
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
 mysqli_set_charset($link, "utf8");
-
-$rs = mysqli_query($link, "SELECT * FROM ticketsprice");
-echo '<title>Danh sách user</title>';
+if ($mapb == "") {
+    $rs = mysqli_query($link, "SELECT * FROM car");
+} else {
+    $rs = mysqli_query($link, "SELECT * FROM car Where ID_customer='$mapb'");
+}
+echo '<title>Thông tin car</title>';
 echo '
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,28 +18,24 @@ echo '
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 echo '<div class="navbar">
         <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
-        <h2 style="margin: auto;">Quản Lý Giá Xe</h2>
+        <h2 style="margin: auto;">Quản Lý Thông Tin Xe Khách Hàng</h2>
     </div>';
 echo '<Form action="">';
 echo '<table border="1" width="100%" class="table table-striped">';
 
 echo    '<TR>
-            <TH>THỜI GIAN THUÊ</TH>
-            <TH>BẮT ĐẦU</TH>
-            <TH>KẾT THÚC</TH>
-            <TH>KIỂU VÉ</TH>
-            <TH>GIÁ VÉ</TH>
-            <TH>CẬP NHẬT</TH>
+            <TH>HÃNG XE</TH>
+            <TH>KIỂU XE</TH>
+            <TH>MÀU SẮC</TH>
+            <TH>BIỂN SỐ XE</TH>          
         </TR>';
 while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
     echo
     '<TR>
-    <TD>' . $row['Time'] . '</TD>
-    <TD>' . $row['TG_BD'] . '</TD>
-    <TD>' . $row['TG_KT'] . '</TD>
-    <TD>' . $row['Ticket_type'] . '</TD>
-    <TD>' . $row['Tickets_price'] . '</TD>
-    <TD><a HREF="quanLyGiaXe.php?ID_tickets_price=' . $row['ID_tickets_price'] . '" target="target_form"><i style="font-size:24px; color: black;" class="fa">&#xf044;</i></a></TD>
+    <TD>' . $row['Company'] . '</TD>
+    <TD>' . $row['Car_type'] . '</TD>
+    <TD>' . $row['Color'] . '</TD>
+    <TD>' . $row['License_plate'] . '</TD>
     </TR>';
 }
 echo '</TABLE>';

@@ -1,23 +1,13 @@
 <?php
-
-
 $myID = $_REQUEST['ID_tickets_price'];
-// $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
+mysqli_set_charset($link, "utf8");
 
-
-// $db_selected = mysqli_select_db($link, 'smartparkingcar');
 $rs = mysqli_query($link, "SELECT * FROM ticketsprice WHERE ID_tickets_price = '$myID'");
 $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
 @include 'config.php';
 
 session_start();
-
-// if (!isset($_SESSION['user_name'])) {
-//     header('location:loginForm.php');
-// }
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,10 +40,7 @@ session_start();
 </div>
 
 <body class="bg-gray-100" style="background-color:#f2f2f2!important;">
-
     <div id="wrapper" class="flex flex-col justify-between h-screen">
-        <!-- header-->
-        <!-- Content-->
         <div>
             <div class="lg:p-12 max-w-md max-w-xl lg:my-0 my-12 mx-auto p-6 space-y-">
                 <h1 class="lg:text-3xl text-xl font-semibold  mb-6">Cập nhật Giá xe</h1>
@@ -118,7 +105,7 @@ session_start();
                         </tr>
                         <tr align="center">
                             <td colspan="2">
-                                <input type="submit" value="OK" class="form-btn">
+                                <input type="submit" value="OK" name="submit" class="form-btn">
                                 <br><br>
                                 <input type="Reset" value="Reset" class="form-btn">
                             </td>

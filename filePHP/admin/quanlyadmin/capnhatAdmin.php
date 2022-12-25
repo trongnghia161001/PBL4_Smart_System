@@ -1,12 +1,9 @@
 <?php
-// $link = mysqli_connect('localhost', 'root', '') or die('Could not connect:' . mysqli_error($link));
 @include 'config.php';
 
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
-
 mysqli_set_charset($link, 'UTF8');
 
-// $db_selected = mysqli_select_db($link, 'DULIEU');
 $rs = mysqli_query($link, "SELECT * FROM admin");
 echo '<title>Danh sách admin</title>';
 echo '
@@ -25,7 +22,6 @@ echo '<Form action="">';
 echo '<table border="1" width="100%" class="table table-striped">';
 
 echo    '<TR>
-            <TH>MÃ ADMIN</TH>
             <TH>HỌ TÊN</TH>
             <TH>EMAIL</TH>
             <TH>NGÀY SINH</TH>
@@ -39,7 +35,6 @@ echo    '<TR>
 while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
     echo
     '<TR>
-    <TD>' . $row['ID_admin'] . '</TD>
     <TD>' . $row['Name'] . '</TD>
     <TD>' . $row['Email'] . '</TD>
     <TD>' . $row['Birthday'] . '</TD>
@@ -53,7 +48,6 @@ while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
 }
 echo '</TABLE>';
 echo '</form>';
-//Giai phong tap cac ban ghi trong Srs
 mysqli_free_result($rs);
 mysqli_close($link);
 ?>

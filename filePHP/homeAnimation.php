@@ -5,12 +5,13 @@
 
 session_start();
 $myusername = $_SESSION['user_name'];
-// $link = mysqli_connect('localhost', 'root', '') or die('Could not connect: ' . mysqli_error($link));
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
+mysqli_set_charset($link, "utf8");
 
-// $db_selected = mysqli_select_db($link, 'smartparkingcar');
 $rs = mysqli_query($link, "SELECT * FROM customer WHERE Username = '$myusername'");
 $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
+
+
 
 
 ?>
@@ -36,7 +37,7 @@ $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
     <div class="right_side">
         <?php if (isset($_SESSION['admin_name'])) {
             echo '<div class="textAlign">
-                    <a href="/PBL4/filePHP/user/capnhat_xoaUser.php">Quản lý tài khoản / khách hàng</a>
+                    <a href="/PBL4/filePHP/admin/quanlykhachhang/capnhat_xoaUser.php">Quản lý tài khoản / khách hàng</a>
                 </div>
                 <div class="textAlign">
                     <a href="/PBL4/filePHP/admin/nhandien/nhandienbienso.php">Nhận diện biển số</a>
@@ -45,7 +46,7 @@ $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
                     <a href="/PBL4/filePHP/admin/giaxe/capnhatgiaxe.php">Quản lý giá xe</a>
                 </div>
                 <div class="textAlign">
-                    <a href="">Báo cáo thống kê</a>
+                    <a href="/PBL4/filePHP/admin/thongke/statistics.php">Báo cáo thống kê</a>
                 </div>';
         } else {
             if (!isset($row['ID_Customer'])) {
@@ -54,10 +55,13 @@ $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
                     <a href="/PBL4/filePHP/user/dashboard/dangkyguixe/dangkyguixe.php">Đăng ký gửi xe</a>
                 </div>';
             }
-
             echo '
                 <div class="textAlign">
                     <a href="/PBL4/filePHP/user/dashboard/xemchotrong/xemchotrong.php">Xem Chỗ Trống</a>
+                </div>';
+            echo '
+                <div class="textAlign">
+                    <a href="/PBL4/filePHP/user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php">Thanh Toán Chi Phí</a>
                 </div>';
         } ?>
 

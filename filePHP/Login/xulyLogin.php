@@ -1,12 +1,7 @@
 <?php
-
 @include 'config.php';
 
 session_start();
-
-$_SESSION = array();
-
-
 
 if (isset($_POST['submit'])) {
 
@@ -32,10 +27,9 @@ if (isset($_POST['submit'])) {
         }
     } else {
         $error[] = 'incorrect email or password!';
+        header('location:loginForm.php');
     }
 };
-
-
 ?>
 
 <html>
