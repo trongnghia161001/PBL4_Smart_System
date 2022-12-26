@@ -1,7 +1,5 @@
 <?php
-
-
-@include 'config.php';
+include '/PBL4/filePHP/user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php';
 
 session_start();
 $myusername = $_SESSION['user_name'];
@@ -10,8 +8,6 @@ mysqli_set_charset($link, "utf8");
 
 $rs = mysqli_query($link, "SELECT * FROM customer WHERE Username = '$myusername'");
 $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
-
-
 
 
 ?>
@@ -57,11 +53,15 @@ $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
             }
             echo '
                 <div class="textAlign">
+                    <a href="/PBL4/filePHP/user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php">Thanh Toán Chi Phí</a>
+                </div>';
+            echo '
+                <div class="textAlign">
                     <a href="/PBL4/filePHP/user/dashboard/xemchotrong/xemchotrong.php">Xem Chỗ Trống</a>
                 </div>';
             echo '
                 <div class="textAlign">
-                    <a href="/PBL4/filePHP/user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php">Thanh Toán Chi Phí</a>
+                    <a href="/PBL4/filePHP/user/dashboard/lichsudoxe/lichsudoxe.php">Lịch sử đỗ</a>
                 </div>';
         } ?>
 

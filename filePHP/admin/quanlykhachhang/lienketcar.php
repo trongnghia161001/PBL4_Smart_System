@@ -28,6 +28,7 @@ echo    '<TR>
             <TH>KIỂU XE</TH>
             <TH>MÀU SẮC</TH>
             <TH>BIỂN SỐ XE</TH>          
+            <TH>LỊCH SỬ ĐỖ</TH>          
         </TR>';
 while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
     echo
@@ -36,6 +37,7 @@ while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
     <TD>' . $row['Car_type'] . '</TD>
     <TD>' . $row['Color'] . '</TD>
     <TD>' . $row['License_plate'] . '</TD>
+    <TD><a HREF="/PBL4/filePHP/user/dashboard/lichsudoxe/lichsudoxe.php?ID_Customer=' . $row['ID_Customer'] . '" target="target_form"><i style="font-size:24px; color: black;" class="fa">&#xf044;</i></a></TD>
     </TR>';
 }
 echo '</TABLE>';
