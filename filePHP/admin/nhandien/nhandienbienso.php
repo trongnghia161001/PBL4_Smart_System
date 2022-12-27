@@ -5,19 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/bbe5565ba3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/LabCNWEB/static/assets/css/detail.css">
-
     <title>Document</title>
+    <style>
+    .element {
+        display: inline-block;
+        width: 100%;
+        height: 100vh;
+        border: none;
+    }
+
+
+    .flexLayout {
+        display: flex;
+    }
+    </style>
 </head>
+
+<Frameset border="1" cols="500,*">
+    <Frame name="t1" src="">
+    </Frame>
+    <Frameset rows="*,*">
+        <Frame name="t2" src="/PBL4/filePHP/admin/nhandien/check.php">
+
+        </Frame>
+        <Frame name="t3" src="">
+
+        </Frame>
+    </Frameset>
+</Frameset>
 
 <body>
 
-
 </body>
-<div class="navbar">
-    <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
-    <h2>Nhận diện biển số xe</h2>
-</div>
 
 </html>

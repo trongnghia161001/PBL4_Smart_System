@@ -19,10 +19,6 @@ $rs3 = mysqli_query($link, "SELECT * FROM `check` WHERE ID_car = '$idcar'"); //G
 $row3 = mysqli_fetch_array($rs3);
 $idcheck = $row3['ID_check'];
 
-if ($row3['TimeOut'] != null) {
-    mysqli_query($link, "UPDATE `check` Set Status = 0 WHERE ID_check = '$idcheck'");
-}
-
 $rs5 = mysqli_query($link, "SELECT * FROM bill WHERE ID_car = '$idcar'"); //Giai phong tap cac ban ghi trong Srs
 $row5 = mysqli_fetch_array($rs5);
 $idbill = $row5['ID_bill'];
@@ -43,7 +39,7 @@ $rs4 = mysqli_query($link, "SELECT CONCAT(
                                             MINUTE(TIMEDIFF(TimeIn, TimeOut)), ' MINUTES ')
                                         AS TG_parking
                                         FROM `check`
-                                        WHERE ID_check = '$idcheck' AND STATUS = 1
+                                        WHERE ID_check = '$idcheck' AND Status = 1
                                         ORDER BY TimeOut DESC"); //Giai phong tap cac ban ghi trong Srs
 $row4 = mysqli_fetch_array($rs4);
 $tgparking = $row4['TG_parking'];
