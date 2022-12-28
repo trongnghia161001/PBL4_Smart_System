@@ -15,9 +15,8 @@ if (!isset($_SESSION['user_name'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="IE=edge">
-    <link href="../../static/images/fav.png" rel="icon" type="image/png">
+    <link href="../../image/icons8-sign-up-30.png" rel="icon" type="image/png">
     <title>Smart Parking Lot</title>
-    <link rel="icon" href="../../static/images/resources/home.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../../static/assets/css/icons.css">

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../static/assets/images/favicon.png" rel="icon" type="image/png">
+    <link href="../../image/icons8-login-rounded-30.png" rel="icon" type="image/png">
+    <link rel="icon" type="image/x-icon" href="">
     <title>Sign In - SmartParkingLot</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

@@ -38,7 +38,7 @@ echo    '<TR>
             <TH>Biển số</TH>
             <TH>Thời gian vào</TH>
             <TH>Thời gian ra</TH>
-            <TH>Trạng thái</TH>
+            <TH>Tiền Thanh Toán</TH>
         </TR>';
 while ($row3 = mysqli_fetch_array($rs3, MYSQLI_BOTH)) {
     echo

@@ -33,6 +33,7 @@ $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../image/icons8-sign-up-30.png" rel="icon" type="image/png">
     <title>Document</title>
     <link rel="stylesheet" href="../static/assets/css/homeAnimation.css">
 </head>

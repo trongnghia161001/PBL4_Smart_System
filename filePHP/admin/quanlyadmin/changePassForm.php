@@ -39,7 +39,7 @@ if (isset($_POST['doimatkhau']) == true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../../static/assets/images/favicon.png" rel="icon" type="image/png">
+    <link href="../../../image/resetpass.png" rel="icon" type="image/png">
     <title>Sign Up - SmartParkingLot</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

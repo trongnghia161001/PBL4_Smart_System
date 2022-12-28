@@ -1,16 +1,14 @@
 <?php
 
-session_start();
-$username = $_SESSION['user_name'];
-
+$mapb1 = $_REQUEST['ID_car'];
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
 mysqli_set_charset($link, "utf8");
-
-
-$rs1 = mysqli_query($link, "SELECT ID_Customer FROM customer where Username = '$username'"); //Giai phong tap cac ban ghi trong Srs
-
-
-
+if ($mapb1 == "") {
+    $rs = mysqli_query($link, "SELECT * FROM `check`");
+} else {
+    $rs = mysqli_query($link, "SELECT * FROM `check` Where ID_car ='$mapb1'");
+}
+echo '<title>Thông tin car</title>';
 echo '
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,29 +19,27 @@ echo '
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 echo '<div class="navbar">
         <i class="fa-solid fa-arrow-left" onclick="history.back()"></i>
-        <h2 style="margin: auto;">Lịch sử đỗ</h2>
+        <h2 style="margin: auto;">Lịch Sử Đỗ Xe</h2>
     </div>';
 echo '<Form action="">';
 echo '<table border="1" width="100%" class="table table-striped">';
 
 echo    '<TR>
-            <TH>Biển số</TH>
-            <TH>Thời gian vào</TH>
-            <TH>Thời gian ra</TH>
-            <TH>Trạng thái</TH>
+            <TH>BIỂN SỐ XE</TH>          
+            <TH>THỜI GIAN VÀO</TH>  
+            <TH>THỜI GIAN RA</TH>
         </TR>';
-while ($row3 = mysqli_fetch_array($rs3, MYSQLI_BOTH)) {
+while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
     echo
     '<TR>
-    <TD>' . $row3['License_plate'] . '</TD>
-    <TD>' . $row3['TimeIn'] . '</TD>
-    <TD>' . $row3['TimeOut'] . '</TD>
-    <TD>' . $row3['Status'] . '</TD>
+    <TD>' . $row['License_plate'] . '</TD>
+    <TD>' . $row['TimeIn'] . '</TD>
+    <TD>' . $row['TimeOut'] . '</TD>
     </TR>';
 }
 echo '</TABLE>';
 echo '</form>';
-mysqli_free_result($rs3);
+mysqli_free_result($rs);
 mysqli_close($link);
 ?>
 
