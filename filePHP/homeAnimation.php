@@ -7,13 +7,6 @@ include '/PBL4/filePHP/user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php';
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
 mysqli_set_charset($link, "utf8");
 
-// session_start();
-// $myusername = $_SESSION['user_name'];
-
-// $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
-// mysqli_set_charset($link, "utf8");
-
-
 // $rs1 = mysqli_query($link, "SELECT * FROM customer where Username = '$username'"); //Giai phong tap cac ban ghi trong Srs
 // $row1 = mysqli_fetch_array($rs1);
 // $idcustomer = $row1['ID_Customer'];
@@ -21,7 +14,6 @@ mysqli_set_charset($link, "utf8");
 // $rs2 = mysqli_query($link, "SELECT ID_car FROM car where ID_customer = '$idcustomer'"); //Giai phong tap cac ban ghi trong Srs
 // $row2 = mysqli_fetch_array($rs2);
 // $idcar = $row2['ID_car'];
-
 
 // $rs3 = mysqli_query($link, "SELECT * FROM `check` WHERE ID_car = '$idcar'"); //Giai phong tap cac ban ghi trong Srs
 // $row3 = mysqli_fetch_array($rs3);

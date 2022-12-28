@@ -62,7 +62,7 @@ $rowDayIn = mysqli_fetch_array($dayIn);
 $dayOut = mysqli_query($link, "SELECT DAY(TimeOut) FROM `check` WHERE ID_check = '$idcheck' AND Status = 1");
 $rowDayOut = mysqli_fetch_array($dayOut);
 
-if ($days == 0) {
+if ($DAYS == 0) {
     mysqli_query($link, "UPDATE bill Set amount = 1 WHERE ID_bill = '$idbill'");
     if (6 < $hoursEnd && $hoursEnd < 17) {
         if ($dayIn == $dayOut) {
@@ -90,7 +90,7 @@ if ($days == 0) {
         mysqli_query($link, "UPDATE bill Set ID_ticket_price = 3 WHERE ID_bill = '$idbill'");
     }
 } else {
-    // $amount = $days++;
+    // $amount = $days++;   
     $DAYS++;
     mysqli_query($link, "UPDATE bill Set amount = '$DAYS' WHERE ID_bill = '$idbill'");
 

@@ -7,6 +7,11 @@ $rs = mysqli_query($link, $sql);
 $value = mysqli_fetch_array($rs);
 // $rs = $link->query($sql);
 
+$result = mysqli_query($link, "SELECT COUNT(*) FROM bill WHERE Status = 0");
+$amountBills = mysqli_fetch_array($result);
+
+$resultSum = mysqli_query($link, "SELECT SUM(sum) FROM bill WHERE Status = 0");
+$amountSum = mysqli_fetch_array($resultSum);
 
 // header("Location:capnhat_xoaUser.php");
 
@@ -45,36 +50,27 @@ $value = mysqli_fetch_array($rs);
                     </div>
                     <div class="category">
                         <span>Amount Bills</span>
-                        <span>127</span>
+                        <span><?php echo $amountBills['0']; ?></span>
                     </div>
                     <div class="category">
                         <span>Amount Cost Per ...</span>
-                        <span>8.648</span>
+                        <span><?php echo $amountSum['0']; ?></span>
                     </div>
                 </div>
 
                 <div class="chart">
                     <div class="operating-systems">
                         <span class="ios-os">
-                            <span></span>iOS
+                            <span></span>Amount Users
                         </span>
                         <span class="windows-os">
-                            <span></span>Windows
+                            <span></span>Amount Bills
                         </span>
                         <span class="android-os">
-                            <span></span>Android
+                            <span></span>Amount Cost Per Day
                         </span>
                     </div>
 
-                    <div class="android-stats">
-                        453.67<span></span>
-                    </div>
-                    <div class="ios-stats">
-                        <span></span>453.67
-                    </div>
-                    <div class="windows-stats">
-                        <span></span>453.67
-                    </div>
 
                     <svg width="563" height="204" class="data-chart" viewBox="0 0 563 204"
                         xmlns="http://www.w3.org/2000/svg">

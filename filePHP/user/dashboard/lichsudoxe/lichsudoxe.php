@@ -18,7 +18,6 @@ $idcar = $row2['ID_car'];
 
 $rs3 = mysqli_query($link, "SELECT * FROM `check` WHERE ID_car = '$idcar'"); //Giai phong tap cac ban ghi trong Srs
 
-
 echo '
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
