@@ -9,7 +9,7 @@ echo '
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/bbe5565ba3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/PBL4/static/assets/css/detail.css">
+    <link rel="stylesheet" href="../../../static/assets/css/detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 echo '<div class="navbar">
@@ -40,8 +40,8 @@ while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
     <TD>' . $row['Phone'] . '</TD>
     <TD>' . $row['CMND'] . '</TD>
     <TD>' . $row['Address'] . '</TD>
-    <TD><a HREF="/PBL4/filePHP/admin/quanlykhachhang/lienketcar.php?ID_Customer=' . $row['ID_Customer'] . '" target="target_form"><i style="font-size:24px; color: black;" class="fa">&#xf044;</i></a></TD>
-    <TD><a HREF="/PBL4/filePHP/admin/quanlykhachhang/xulyxoaUser.php?ID_Customer=' . $row['ID_Customer'] . '"><i class="material-icons" style="font-size:24px; color: black;">&#xe872;</i></a></TD>
+    <TD><a href="lienketcar.php?ID_Customer=' . $row['ID_Customer'] . '" target="target_form"><i style="font-size:24px; color: black;" class="fa">&#xf044;</i></a></TD>
+    <TD><a href="xulyxoaUser.php?ID_Customer=' . $row['ID_Customer'] . '"><i class="material-icons" style="font-size:24px; color: black;">&#xe872;</i></a></TD>
     </TR>';
 }
 echo '</TABLE>';

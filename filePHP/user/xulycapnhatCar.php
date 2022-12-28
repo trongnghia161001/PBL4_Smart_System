@@ -21,7 +21,7 @@ Color = '$color',
 License_plate = '$licenseplate'
 WHERE ID_Customer = '$idcustomer'");
 
-header("Location:/PBL4/filePHP/user/thongtinuser/thongtincar.php");
+header("Location:../../filePHP/user/thongtinuser/thongtincar.php");
 
 ?>
 

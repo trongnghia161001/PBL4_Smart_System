@@ -25,13 +25,14 @@
     <Frame name="t1" src="">
     </Frame>
     <Frameset rows="*,*">
-        <Frame name="t2" src="/PBL4/filePHP/admin/nhandien/check.php">
+        <Frame name="t2" src="check.php">
 
         </Frame>
-        <Frame name="t3" src="">
+        <Frame name="t3" src="bill.php">
 
         </Frame>
     </Frameset>
+
 </Frameset>
 
 <body>

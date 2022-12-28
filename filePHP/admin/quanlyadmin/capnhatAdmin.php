@@ -1,4 +1,5 @@
 <?php
+ob_start();
 @include 'config.php';
 
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
@@ -11,7 +12,7 @@ echo '
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/bbe5565ba3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/PBL4/static/assets/css/detail.css">
+    <link rel="stylesheet" href="../../../static/assets/css/detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 echo '<div class="navbar">

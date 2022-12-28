@@ -16,14 +16,15 @@ $row2 = mysqli_fetch_array($rs2);
 $idcar = $row2['ID_car'];
 
 
-$rs3 = mysqli_query($link, "SELECT * FROM `check` WHERE ID_car = '$idcar'"); //Giai phong tap cac ban ghi trong Srs
+$rs3 = mysqli_query($link, "SELECT c.License_plate, c.TimeIn, c.TimeOut, bi.sum, bi.ID_customer From `check` AS c JOIN bill AS bi ON c.ID_check= bi.ID_check WHERE c.ID_car = '$idcar'"); //Giai phong tap cac ban ghi trong Srs
+
 
 echo '
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://kit.fontawesome.com/bbe5565ba3.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/PBL4/static/assets/css/detail.css">
+<link rel="stylesheet" href="../../../../static/assets/css/detail.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 echo '<div class="navbar">
@@ -45,7 +46,7 @@ while ($row3 = mysqli_fetch_array($rs3, MYSQLI_BOTH)) {
     <TD>' . $row3['License_plate'] . '</TD>
     <TD>' . $row3['TimeIn'] . '</TD>
     <TD>' . $row3['TimeOut'] . '</TD>
-    <TD>' . $row3['Status'] . '</TD>
+    <TD>' . $row3['sum'] . '</TD>
     </TR>';
 }
 echo '</TABLE>';
@@ -57,5 +58,6 @@ mysqli_close($link);
 <html>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
 </html>

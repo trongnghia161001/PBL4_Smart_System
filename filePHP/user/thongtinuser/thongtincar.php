@@ -21,7 +21,7 @@ $row2 = mysqli_fetch_array($rs2, MYSQLI_BOTH);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/PBL4/fileCSS/styleFlexBox.css">
+    <link rel="stylesheet" href="../../../fileCSS/styleFlexBox.css">
     <style>
     :root {
         --color-white: #f3f3f3;
@@ -139,7 +139,7 @@ $row2 = mysqli_fetch_array($rs2, MYSQLI_BOTH);
 <body>
 
 
-    <form class="container2" action="/PBL4/filePHP/user/xulycapnhatCar.php" method="POST">
+    <form class="container2" action="../xulycapnhatCar.php" method="POST">
         <h1>Thông tin về xe</h1>
         <div class="form-group">
             <label id="name-label" for="hangxe">Hãng Xe</label>

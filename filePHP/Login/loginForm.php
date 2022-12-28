@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/LabCNWEB/static/assets/images/favicon.png" rel="icon" type="image/png">
+    <link href="../../static/assets/images/favicon.png" rel="icon" type="image/png">
     <title>Sign In - SmartParkingLot</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/icons.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/uikit.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/style.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/tailwind.css">
+    <link rel="stylesheet" href="../../static/assets/css/icons.css">
+    <link rel="stylesheet" href="../../static/assets/css/uikit.css">
+    <link rel="stylesheet" href="../../static/assets/css/style.css">
+    <link rel="stylesheet" href="../../static/assets/css/tailwind.css">
     <link href='https://css.gg/log-in.css' rel='stylesheet'>
     <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js">
     </script>
     <script>
     $(function() {
-        $("#includedContent").load("/PBL4/filePHP/index.php");
+        $("#includedContent").load("../index.php");
     });
     </script>
 </head>
@@ -97,11 +97,11 @@
     </div>
     <!-- Scripts
 ================================================== -->
-    <script src="/PBL4/static/assets/js/tippy.all.min.js"></script>
-    <script src="/PBL4/static/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="/PBL4/static/assets/js/uikit.js"></script>
-    <script src="/PBL4/static/assets/js/simplebar.js"></script>
-    <script src="/PBL4/static/assets/js/custom.js"></script>
+    <script src="../../static/assets/js/tippy.all.min.js"></script>
+    <script src="../../static/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../static/assets/js/uikit.js"></script>
+    <script src="../../static/assets/js/simplebar.js"></script>
+    <script src="../../static/assets/js/custom.js"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@
 if (session_id() == '') session_start();
 
 if (isset($_SESSION['user_name']) == false) {
-    header("location:/PBL4/filePHP/Login/loginForm.php");
+    header("location:../../../filePHP/Login/loginForm.php");
     exit();
 }
 $User = $_SESSION['user_name'];
@@ -26,7 +26,7 @@ if (isset($_POST['doimatkhau1']) == true) {
         $sql = "UPDATE account SET Password = ? WHERE Username = ?";
         $stmt1 = $conn1->prepare($sql);
         $stmt1->execute([$np1, $User]);
-        header('location:/PBL4/filePHP/homeAnimation.php');
+        header('location:../../../filePHP/homeAnimation.php');
     }
 }
 
@@ -39,14 +39,14 @@ if (isset($_POST['doimatkhau1']) == true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/PBL4/static/assets/images/favicon.png" rel="icon" type="image/png">
+    <link href="../../../static/assets/images/favicon.png" rel="icon" type="image/png">
     <title>Sign Up - SmartParkingLot</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/icons.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/uikit.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/style.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/tailwind.css">
+    <link rel="stylesheet" href="../../../static/assets/css/icons.css">
+    <link rel="stylesheet" href="../../../static/assets/css/uikit.css">
+    <link rel="stylesheet" href="../../../static/assets/css/style.css">
+    <link rel="stylesheet" href="../../../static/assets/css/tailwind.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
@@ -123,11 +123,12 @@ if (isset($_POST['doimatkhau1']) == true) {
 
     <!-- Scripts
 ================================================== -->
-    <script src="/PBL4/static/assets/js/tippy.all.min.js"></script>
-    <script src="/PBL4/static/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="/PBL4/static/assets/js/uikit.js"></script>
-    <script src="/PBL4/static/assets/js/simplebar.js"></script>
-    <script src="/PBL4/static/assets/js/custom.js"></script>
+
+    <script src="../../../static/assets/js/tippy.all.min.js"></script>
+    <script src="../../../static/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../../static/assets/js/uikit.js"></script>
+    <script src="../../../static/assets/js/simplebar.js"></script>
+    <script src="../../../static/assets/js/custom.js"></script>
 
 
 </body>

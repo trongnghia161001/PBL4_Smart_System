@@ -20,7 +20,7 @@ $idcustomer = $row1['ID_Customer'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/PBL4/fileCSS/styleFlexBox.css">
+    <link rel="stylesheet" href="../../fileCSS/styleFlexBox.css">
     <style>
     :root {
         --color-white: #f3f3f3;
@@ -136,7 +136,7 @@ $idcustomer = $row1['ID_Customer'];
 </head>
 
 <body>
-    <form class="container" action="/PBL4/filePHP/user/xulycapnhatUser.php" method="POST">
+    <form class="container" action="../xulycapnhatUser.php" method="POST">
         <h1>Thông tin khách hàng</h1>
         <div class="form-group">
             <label id="name-label" for="name">Tên Khách Hàng</label>
@@ -179,6 +179,11 @@ $idcustomer = $row1['ID_Customer'];
             <label id="name-label" for="cmnd">CMND</label>
             <input type="text" name="txtCMND" id="cmnd" class="form-control" placeholder="Enter your CMND" required
                 value="<?php echo $row1['CMND'] ?>">
+        </div>
+        <div class="form-group">
+            <label id="name-label" for="money">Money</label>
+            <input type="text" name="txtMoney" id="money" class="form-control" placeholder="Enter your CMND" required
+                value="<?php echo $row1['Money'] ?>">
         </div>
         <div class="form-group">
             <label id="name-label" for="diachi">Địa chỉ</label>

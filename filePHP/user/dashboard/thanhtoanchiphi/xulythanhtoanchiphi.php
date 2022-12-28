@@ -15,7 +15,7 @@ mysqli_query($link, "UPDATE `check` Set Status = 0 WHERE ID_check = '$idcheck'")
 mysqli_query($link, "UPDATE bill Set TG_parking = '$tgparking', sum = '$money' WHERE ID_check = '$idcheck'");
 
 
-header("Location:/PB4/filePHP/Login/userPage.php");
+header("Location:../../../../filePHP/Login/userPage.php");
 ?>
 
 <html>

@@ -15,16 +15,16 @@ if (!isset($_SESSION['admin_name'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="IE=edge">
-    <link href="/PBL4/static/images/fav.png" rel="icon" type="image/png">
+    <link href="../../static/images/fav.png" rel="icon" type="image/png">
     <title>Smart Parking Lot</title>
-    <link rel="icon" href="/PBL4/static/images/resources/home.png">
+    <link rel="icon" href="../../static/images/resources/home.png">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/icons.css">
-    <link rel="stylesheet" href="/PBL4//static/assets/css/uikit.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/style.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/tailwind.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/detail.css">
+    <link rel="stylesheet" href="../../static/assets/css/icons.css">
+    <link rel="stylesheet" href="../../static/assets/css/uikit.css">
+    <link rel="stylesheet" href="../../static/assets/css/style.css">
+    <link rel="stylesheet" href="../../static/assets/css/tailwind.css">
+    <link rel="stylesheet" href="../../static/assets/css/detail.css">
     <script src="https://kit.fontawesome.com/bbe5565ba3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -37,7 +37,7 @@ if (!isset($_SESSION['admin_name'])) {
     <header>
         <div class="header_inner">
             <div class="left-side">
-                <a href="/PBL4/filePHP/Login/adminPage.php" style="display:flex;">
+                <a href="adminPage.php" style="display:flex;">
                     <i class='fas fa-parking' style='font-size:70px; color: #ff8177;'></i>
                     <p style="line-height:70px; white-space: nowrap; width: 300px; margin-left: 10px;">𝓢𝓶𝓪𝓻𝓽
                         𝓟𝓪𝓻𝓴𝓲𝓷𝓰
@@ -52,9 +52,9 @@ if (!isset($_SESSION['admin_name'])) {
                             id="nameadmin">
                             ADMIN:
                             <?php echo $_SESSION['admin_name'] ?>
-                            <li><a href="/PBL4/filePHP/admin/quanlyadmin/capnhatAdmin.php" target="target_form">
+                            <li><a href="../admin/quanlyadmin/capnhatAdmin.php" target="target_form">
                                     Quản Lý Tài Khoản Admin </a> </li>
-                            <li><a href="/PBL4/filePHP/admin/quanlyadmin/changePassForm.php" target="target_form">
+                            <li><a href="../admin/quanlyadmin/changePassForm.php" target="target_form">
                                     Đổi Mật Khẩu</a> </li>
                             <li><a href="xulyLogout.php"> Log Out</a></li>
                     </ul>
@@ -67,12 +67,11 @@ if (!isset($_SESSION['admin_name'])) {
             style="border:0;"></iframe>
     </div>
     </script>
-    <script src="/PBL4/static/assets/js/tippy.all.min.js"></script>
-    <script src="/PBL4/static/assets/js/jquery-3.3.1.min.js"></script>
-    <script src="/PBL4/static/assets/js/uikit.js"></script>
-    <script src="/PBL4/static/assets/js/simplebar.js"></script>
-    <script src="/PBL4/static/assets/js/custom.js"></script>
-    <script src="/../../unpkg.com/ionicons%405.2.3/dist/ionicons.js"></script>
+    <script src="../../static/assets/js/tippy.all.min.js"></script>
+    <script src="../../static/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../../static/assets/js/uikit.js"></script>
+    <script src="../../static/assets/js/simplebar.js"></script>
+    <script src="../../static/assets/js/custom.js"></script>
 </body>
 
 </html>

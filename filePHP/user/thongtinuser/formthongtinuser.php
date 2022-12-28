@@ -24,8 +24,8 @@
 
 <body>
     <div class="flexLayout">
-        <iframe src="/PBL4/filePHP/user/thongtinuser/thongtinuser.php" class="element"></iframe>
-        <iframe src="/PBL4/filePHP/user/thongtinuser/thongtincar.php" class="element"></iframe>
+        <iframe src="thongtinuser.php" class="element"></iframe>
+        <iframe src="thongtincar.php" class="element"></iframe>
     </div>
 </body>
 

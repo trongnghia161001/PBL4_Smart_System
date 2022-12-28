@@ -3,7 +3,7 @@
 session_start();
 $myusername = $_SESSION['user_name'];
 
-include '/PBL4/filePHP/user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php';
+include '/user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php';
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
 mysqli_set_charset($link, "utf8");
 
@@ -34,7 +34,7 @@ $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
     <meta http-equiv="Content-Security-Policy" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/PBL4/static/assets/css/homeAnimation.css">
+    <link rel="stylesheet" href="../static/assets/css/homeAnimation.css">
 </head>
 
 <body>
@@ -42,49 +42,53 @@ $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
         <div class="surface">
         </div>
         <div class="car">
-            <img src="/PBL4/static/images/resources/Img_06.png" alt="">
+            <img src="../static/images/resources/Img_06.png" alt="">
         </div>
     </div>
     <div class="right_side">
         <?php if (isset($_SESSION['admin_name'])) {
             echo '<div class="textAlign">
-                    <a href="/PBL4/filePHP/admin/quanlykhachhang/capnhat_xoaUser.php">Quản lý tài khoản / khách hàng</a>
+                    <a href="admin/quanlykhachhang/capnhat_xoaUser.php">Quản lý tài khoản / khách hàng</a>
                 </div>
                 <div class="textAlign">
-                    <a href="/PBL4/filePHP/admin/nhandien/nhandienbienso.php">Nhận diện biển số</a>
+                    <a href="admin/nhandien/nhandienbienso.php">Nhận diện biển số</a>
                 </div>
                 <div class="textAlign">
-                    <a href="/PBL4/filePHP/admin/giaxe/capnhatgiaxe.php">Quản lý giá xe</a>
+                    <a href="admin/giaxe/capnhatgiaxe.php">Quản lý giá xe</a>
                 </div>
                 <div class="textAlign">
-                    <a href="/PBL4/filePHP/admin/thongke/statistics.php">Báo cáo thống kê</a>
+                    <a href="admin/thongke/statistics.php">Báo cáo thống kê</a>
                 </div>';
         } else {
             if (!isset($row['ID_Customer'])) {
                 echo '
                 <div class="textAlign">
-                    <a href="/PBL4/filePHP/user/dashboard/dangkyguixe/dangkyguixe.php">Đăng ký gửi xe</a>
+                    <a href="user/dashboard/dangkyguixe/dangkyguixe.php">Đăng ký gửi xe</a>
                 </div>';
             }
             // if ($rowCheckStatus['Status'] == 1) {
             echo '
                 <div class="textAlign">
-                    <a href="/PBL4/filePHP/user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php">Thanh Toán Chi Phí</a>
+                    <a href="user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php">Thanh Toán Chi Phí</a>
+                </div>';
+            echo '
+                <div class="textAlign">
+                    <a href="user/dashboard/xemthongtingiave/giave.php">Xem Giá Vé</a>
                 </div>';
             // }
             echo '
                 <div class="textAlign">
-                    <a href="/PBL4/filePHP/user/dashboard/xemchotrong/xemchotrong.php">Xem Chỗ Trống</a>
+                    <a href="user/dashboard/xemchotrong/xemchotrong.php">Xem Chỗ Trống</a>
                 </div>';
             echo '
                 <div class="textAlign">
-                    <a href="/PBL4/filePHP/user/dashboard/lichsudoxe/lichsudoxe.php">Lịch sử đỗ</a>
+                    <a href="user/dashboard/lichsudoxe/lichsudoxe.php">Lịch sử đỗ</a>
                 </div>';
         } ?>
 
     </div>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-    <script src="/PBL4/static/assets/js/Magic.js"></script>
+    <script src="../static/assets/js/Magic.js"></script>
 </body>
 
 </html>

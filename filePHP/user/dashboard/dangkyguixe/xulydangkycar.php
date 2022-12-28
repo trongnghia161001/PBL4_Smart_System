@@ -1,5 +1,7 @@
 <?php
 $conn = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
+mysqli_set_charset($conn, "utf8");
+
 
 if (isset($_POST['submit'])) {
     $id = $_REQUEST['ID_Customer'];
@@ -12,7 +14,7 @@ if (isset($_POST['submit'])) {
 
     mysqli_query($conn, $insert);
 
-    header('location:/PBL4/filePHP/homeAnimation.php');
+    header('location:../../../homeAnimation.php');
 }
 ?>
 <html>

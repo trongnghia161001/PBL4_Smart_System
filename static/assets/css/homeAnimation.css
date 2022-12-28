@@ -16,7 +16,7 @@ body {
   height: 80vh;
   width: 70vw;
   margin: 2rem auto;
-  background: url("/PBL4/static/images/resources/Img_1.png");
+  background: url("../../images/resources/Img_1.png");
   background-size: cover;
   position: absolute;
   padding-left: 1rem;
@@ -28,7 +28,7 @@ body {
 .surface {
   height: 140px;
   width: 500%;
-  background: url("/PBL4/static/images/resources/Img_02.png");
+  background: url("../../images/resources/Img_02.png");
   display: block;
   position: absolute;
   bottom: 0%;

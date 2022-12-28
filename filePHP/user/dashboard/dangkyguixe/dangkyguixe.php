@@ -15,8 +15,8 @@ $myusername = $_SESSION['user_name'];
 <head>
     <meta charset="utf-8">
     <title>HTML CSS Register Form</title>
-    <link rel="stylesheet" href="/PBL4/fileCSS/signupUser.css">
-    <link rel="stylesheet" href="/PBL4/static/assets/css/detail.css">
+    <link rel="stylesheet" href="../../../../fileCSS/signupUser.css">
+    <link rel="stylesheet" href="../../../../static/assets/css/detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -80,8 +80,9 @@ $myusername = $_SESSION['user_name'];
                 </div>
             </div>
             <div class="form-group">
-                <label for="choose-file" class="label-title">Bio</label>
-                <textarea class="form-input" rows="4" cols="50" style="height:auto"></textarea>
+                <label for="money" class="label-title">Money *</label>
+                <input type="text" class="form-input" id="money" placeholder="enter your money" required="required"
+                    name="Money" value="<?php echo $mymoney ?>">
             </div>
         </div>
         <div class="form-footer">

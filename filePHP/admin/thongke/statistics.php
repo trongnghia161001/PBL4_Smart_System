@@ -25,7 +25,7 @@ $amountSum = mysqli_fetch_array($resultSum);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Statistics Panel UI</title>
     <meta name="robots" content="noindex,follow" />
-    <link rel="stylesheet" href="/PBL4/fileCSS/statistics.css">
+    <link rel="stylesheet" href="../../../fileCSS/statistics.css">
 </head>
 
 <body>

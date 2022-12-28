@@ -6,6 +6,7 @@ $email = $_REQUEST['txtEmail'];
 $birthday = $_REQUEST['txtBirthday'];
 $phone = $_REQUEST['txtPhone'];
 $cmnd = $_REQUEST['txtCMND'];
+$money = $_REQUEST['txtMoney'];
 $diachi = $_REQUEST['txtDiaChi'];
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
 mysqli_set_charset($link, "utf8");
@@ -24,10 +25,11 @@ Gmail = '$email',
 Birthday = '$birthday',
 Phone = '$phone',
 CMND = '$cmnd',
+Money = '$money',
 Address = '$diachi'
 WHERE ID_Customer = '$idcustomer'");
 
-header("Location:/PBL4/filePHP/user/thongtinuser/thongtinuser.php");
+header("Location:../../filePHP/user/thongtinuser/thongtinuser.php");
 
 ?>
 
