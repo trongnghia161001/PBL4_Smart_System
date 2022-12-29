@@ -2,7 +2,7 @@
 if (session_id() == '') session_start();
 
 if (isset($_SESSION['admin_name']) == false) {
-    header("location:../../Login/loginForm.php");
+    header("location: ../../Login/loginForm.php");
     exit();
 }
 $Useradmin = $_SESSION['admin_name'];
@@ -26,7 +26,7 @@ if (isset($_POST['doimatkhau']) == true) {
         $sql = "UPDATE account SET Password = ? WHERE Username = ?";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$np, $Useradmin]);
-        header('location:../../homeAnimation.php');
+        header('location: ../../homeAnimation.php');
     }
 }
 

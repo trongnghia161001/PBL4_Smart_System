@@ -3,23 +3,21 @@
 session_start();
 $myusername = $_SESSION['user_name'];
 
-include '/user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php';
 $link = mysqli_connect('sql6.freesqldatabase.com', 'sql6586096', 'KuFkaR6aj9', 'sql6586096', 3306) or die('Could not connect: ' . $conn->connect_error);
 mysqli_set_charset($link, "utf8");
 
-// $rs1 = mysqli_query($link, "SELECT * FROM customer where Username = '$username'"); //Giai phong tap cac ban ghi trong Srs
-// $row1 = mysqli_fetch_array($rs1);
-// $idcustomer = $row1['ID_Customer'];
-
-// $rs2 = mysqli_query($link, "SELECT ID_car FROM car where ID_customer = '$idcustomer'"); //Giai phong tap cac ban ghi trong Srs
-// $row2 = mysqli_fetch_array($rs2);
-// $idcar = $row2['ID_car'];
-
-// $rs3 = mysqli_query($link, "SELECT * FROM `check` WHERE ID_car = '$idcar'"); //Giai phong tap cac ban ghi trong Srs
-// $row3 = mysqli_fetch_array($rs3);
-
 $rs = mysqli_query($link, "SELECT * FROM customer WHERE Username = '$myusername'");
 $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
+$idcustomer = $row['ID_Customer'];
+
+$rs2 = mysqli_query($link, "SELECT ID_car FROM car where ID_customer = '$idcustomer'"); //Giai phong tap cac ban ghi trong Srs
+$row2 = mysqli_fetch_array($rs2);
+$idcar = $row2['ID_car'];
+
+$rs3 = mysqli_query($link, "SELECT * FROM `check` WHERE ID_car = '$idcar' AND Status = 1"); //Giai phong tap cac ban ghi trong Srs
+$row3 = mysqli_fetch_array($rs3);
+
+
 
 // $resultCheck = mysqli_query($link, "SELECT * FROM `check` WHERE ID_car = '$idcar'"); //Giai phong tap cac ban ghi trong Srs
 // $rowCheckStatus = mysqli_fetch_array($resultCheck, MYSQLI_BOTH);
@@ -33,7 +31,7 @@ $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../image/icons8-sign-up-30.png" rel="icon" type="image/png">
+    <link href="../image/icons8-home-page-30.png" rel="icon" type="image/png">
     <title>Document</title>
     <link rel="stylesheet" href="../static/assets/css/homeAnimation.css">
 </head>
@@ -67,16 +65,17 @@ $row = mysqli_fetch_array($rs, MYSQLI_BOTH);
                     <a href="user/dashboard/dangkyguixe/dangkyguixe.php">Đăng ký gửi xe</a>
                 </div>';
             }
-            // if ($rowCheckStatus['Status'] == 1) {
-            echo '
+            if (isset($rowCheckStatus['Status'])) {
+                echo '
                 <div class="textAlign">
                     <a href="user/dashboard/thanhtoanchiphi/thanhtoanchiphi.php">Thanh Toán Chi Phí</a>
                 </div>';
+            }
+
             echo '
                 <div class="textAlign">
                     <a href="user/dashboard/xemthongtingiave/giave.php">Xem Giá Vé</a>
                 </div>';
-            // }
             echo '
                 <div class="textAlign">
                     <a href="user/dashboard/xemchotrong/xemchotrong.php">Xem Chỗ Trống</a>

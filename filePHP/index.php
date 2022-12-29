@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Parking Lot</title>
     <link rel="stylesheet" href="../fileCSS/index.css">
-    <link rel="icon" href="../image/home.png">
+    <link href="../image/icons8-home-page-30.png" rel="icon" type="image/png">
+
 
 </head>
 

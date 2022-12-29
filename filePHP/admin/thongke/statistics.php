@@ -7,10 +7,10 @@ $rs = mysqli_query($link, $sql);
 $value = mysqli_fetch_array($rs);
 // $rs = $link->query($sql);
 
-$result = mysqli_query($link, "SELECT COUNT(*) FROM bill WHERE Status = 0");
+$result = mysqli_query($link, "SELECT COUNT(*) FROM bill WHERE Status = 1");
 $amountBills = mysqli_fetch_array($result);
 
-$resultSum = mysqli_query($link, "SELECT SUM(sum) FROM bill WHERE Status = 0");
+$resultSum = mysqli_query($link, "SELECT SUM(sum) FROM bill WHERE Status = 1");
 $amountSum = mysqli_fetch_array($resultSum);
 
 // header("Location:capnhat_xoaUser.php");

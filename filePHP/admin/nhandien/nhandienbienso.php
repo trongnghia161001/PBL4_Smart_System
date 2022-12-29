@@ -21,18 +21,15 @@
     </style>
 </head>
 
-<Frameset border="1" cols="500,*">
-    <Frame name="t1" src="">
-    </Frame>
-    <Frameset rows="*,*">
-        <Frame name="t2" src="check.php">
+
+    <Frameset border rows="*,*">
+        <Frame name="t2" src="/PBL4/filePHP/admin/nhandien/check.php">
 
         </Frame>
-        <Frame name="t3" src="bill.php">
+        <Frame name="t3" src="/PBL4/filePHP/admin/nhandien/bill.php">
 
         </Frame>
     </Frameset>
-</Frameset>
 
 <body>
 

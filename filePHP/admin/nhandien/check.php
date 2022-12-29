@@ -27,7 +27,15 @@ echo    '<TR>
             <TH>THỜI GIAN RA</TH>
             <TH>TÊN KHÁCH HÀNG</TH>
         </TR>';
-// while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
+while ($row = mysqli_fetch_array($rs, MYSQLI_BOTH)) {
+    echo
+    '<TR>
+    <TD>' . $row['License_plate'] . '</TD>
+    <TD>' . $row['TimeIn'] . '</TD>
+    <TD>' . $row['TimeOut'] . '</TD>
+    <TD>' . $row['Name'] . '</TD>
+    </TR>';
+}
 
 
 session_start();
@@ -45,15 +53,7 @@ JOIN customer AS cus ON ca.ID_customer=cus.ID_customer
 where c.Status = '0' and c.Status_bill = '0'");
 
 while ($info = mysqli_fetch_array($rss, MYSQLI_BOTH)) {
-    if ($info['TimeOut'] == Null) {
-        echo
-        '<TR>
-    <TD>' . $info['License_plate'] . '</TD>
-    <TD>' . $info['TimeIn'] . '</TD>
-    <TD>' . $info['TimeOut'] . '</TD>
-    <TD>' . $info['Name'] . '</TD>
-     </TR>';
-    }
+
     if ($info['TimeOut'] != Null) {
         $idcheck = $info['ID_check'];
         $rs4 = mysqli_query($link, "SELECT CONCAT(
@@ -150,5 +150,8 @@ mysqli_close($link);
 <html>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+
 
 </html>
